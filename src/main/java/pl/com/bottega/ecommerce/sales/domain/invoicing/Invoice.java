@@ -35,13 +35,13 @@ public class Invoice {
     Invoice(Id invoiceId, ClientData client) {
         this.id = invoiceId;
         this.client = client;
-        this.items = new ArrayList<InvoiceLine>();
+        this.items = new ArrayList<>();
 
         this.net = Money.ZERO;
         this.gros = Money.ZERO;
     }
 
-    public void addItem(InvoiceLine item) {
+    void addItem(InvoiceLine item) {
         items.add(item);
 
         net = net.add(item.getNet());
