@@ -4,7 +4,7 @@ import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
 
 public class InvoiceFactory {
-    public Invoice create(Id invoiceID, ClientData clientData) {
+    public Invoice createInvoice(Id invoiceID, ClientData clientData) {
         return new Invoice(invoiceID, clientData);
     }
 }
