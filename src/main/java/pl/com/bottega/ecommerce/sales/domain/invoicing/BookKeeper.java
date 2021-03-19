@@ -23,7 +23,8 @@ public class BookKeeper {
 
     public Invoice issuance(ClientData client) {
         InvoiceRequest invoiceRequest = new InvoiceRequest(client);
-        Invoice invoice = new Invoice(Id.generate(), client);
+        InvoiceFactory invoiceFactory = new InvoiceFactory();
+        Invoice invoice = invoiceFactory.createInvoice(Id.generate(), client);
 
         for (RequestItem item : invoiceRequest.getItems()) {
             Tax tax = TaxCalculator.calculateTax(item.getProductData().getType(), item.getTotalCost());
