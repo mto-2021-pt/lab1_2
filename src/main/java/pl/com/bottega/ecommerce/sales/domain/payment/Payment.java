@@ -28,11 +28,11 @@ public class Payment {
         this.aggregateId = aggregateId;
         this.clientData = clientData;
         this.amount = amount;
+
     }
 
-    public Payment rollBack() {
-        Id id = Id.generate();
-
-        return new Payment(id, clientData, amount.multiplyBy(-1));
+    public void rollBack() {
+        this.aggregateId = Id.generate();
+        this.amount.multiplyBy(-1);
     }
 }
